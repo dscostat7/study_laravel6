@@ -1,5 +1,9 @@
 <?php
 
+Route::get('/', function(){
+    return view('welcome');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +15,7 @@
 |
 
 
-Route::get('/', function () {
-    return view('welcome');
+
 
 });
 Route::get('/contato', function(){
@@ -56,7 +59,10 @@ Route::post('products', 'ProductController@store')->name('products.store');
 Route::put('products/{id}/', 'ProductController@update')->name('products.update');
 */
 Route::any('products/search', 'ProductController@search')->name('products.search');
-Route::resource('products', 'ProductController');//->middleware('auth'); // Apenas essa linha substitui as rotas acima
-Route::get('/login', function() {
-    return 'Login';
-})->name('login');
+Route::resource('products', 'ProductController')->middleware(['auth', 'check.is.admin']);//->middleware('auth'); // Apenas essa linha substitui as rotas acima
+// Route::get('/login', function() {
+//     return 'Login';
+// })->name('login');
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

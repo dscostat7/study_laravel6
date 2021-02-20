@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreUpdateProductRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -14,10 +15,11 @@ class ProductController extends Controller
     {
         $this->request = $request;
         $this->repository = $product;
-        // $this->middleware('auth')->only([
-        //     'create',
-        //     'store,',
-        // ]);
+        $this->middleware('auth')->only([
+            'create',
+            'edit',
+            'destroy',
+        ]);
     }
 
 

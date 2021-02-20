@@ -16,4 +16,5 @@
     <script>
         document.body.style.background = "#836FFF"
     </script>
+    <h3><a href="{{ route('products.index') }}"> << Voltar</a></h3>
 @endpush

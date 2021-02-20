@@ -16,15 +16,17 @@
     </ul>
 
     <form action="{{ route('products.destroy', $product->id) }}" method="POST">
-    
         @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-danger">Excluir</button>
-        @method('UPDATE')
-        <button type="submit" class="btn btn-primary">Editar</button>
-
-
     </form>
+
+    <form action="{{ route('products.edit', $product->id) }}" method="GET">
+        @csrf
+        @method('UPDATE')
+    <button type="submit" class="btn btn-primary">Editar</button>
+    </form>
+    
 
 <br><br>
     <h3><a href="{{ route('products.index') }}"> << Voltar</a></h3>
