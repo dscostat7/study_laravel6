@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ProductController extends Controller
+{
+
+     public function index()
+    {
+        $products = ['Produto 01', 'Produto 02', 'Produto 03'];
+        return $products;
+    }
+
+    public function show($id)
+    {
+        return "Visualizando o produto {$id}";
+    }
+
+    public function create()
+    {
+        return 'Cadastrando novo produto';
+    }
+
+    public function edit($id)
+    {
+        return "Editando o produto {$id}";
+    }
+
+    public function destroy($id)
+    {
+        return "Apagando o produto {$id}";
+    }
+
+    public function store()
+    {
+        return 'Cadastrando novo produto';
+    }
+
+    public function update($id)
+    {
+        return "Editando o produto {$id}";
+    }
+
+}
+
